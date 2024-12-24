@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+h2, h3 {
+    color: #ffffff;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+.left-panel, .right-panel {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+.left-panel {
+    width: 40%;
+    margin-right: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+.right-panel {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+.right-panel canvas {
+    max-width: 100%;
+    max-height: 80vh;
+    border: 2px solid #444;
+    border-radius: 4px;
+    background-color: #000;
+}
+.section {
+    margin-bottom: 20px;
+}
+.section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.section input[type="file"],
+.section input[type="text"],
+.section textarea,
+.section select,
+.section input[type="color"],
+.section input[type="range"] {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3c3c3c;
+    color: #e0e0e0;
+}
+.section input[type="range"] {
+    cursor: pointer;
+}
+.section input[type="file"]::-webkit-file-upload-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.section input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #0056b3;
+}
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.radio-group label {
+    font-weight: normal;
+    color: #e0e0e0;
+}
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+.buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+#copyButton {
+    background-color: #28a745;
+}
+#copyButton:hover {
+    background-color: #218838;
+}
+#downloadButton {
+    background-color: #007bff;
+}
+#downloadButton:hover {
+    background-color: #0056b3;
+}
+.result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.result.success {
+    color: #28a745;
+}
+.result.error {
+    color: #dc3545;
+}
+.hidden {
+    display: none;
+}
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(44, 44, 44, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    z-index: 10;
+    color: #ffffff;
+}
+.drop-area {
+    border: 2px dashed #555;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    color: #aaa;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.drop-area.dragover {
+    background-color: #444;
+    border-color: #007bff;
+    color: #ffffff;
+}
+#fontSizeDisplay {
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+}
+.color-section label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #ffffff;
+}
+.color-picker-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.color-picker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.color-picker label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: normal;
+    color: #e0e0e0;
+    white-space: nowrap;
+}
+.color-picker .icon {
+    font-size: 1.2em;
+}
+.color-picker input[type="color"] {
+    width: 74px;
+    height: 40px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+}
+.color-picker input[type="color"]:hover {
+    transform: scale(1.1);
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #3c3c3c;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 8px;
+    border: 1px solid #3c3c3c;
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .left-panel, .right-panel {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+    .right-panel canvas {
+        max-height: 60vh;
+    }
+    .color-picker-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

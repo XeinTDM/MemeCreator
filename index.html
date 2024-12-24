@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h2>Meme Creator</h2>
+            <div class="section">
+                <label for="imageInput">Select Image:</label>
+                <input type="file" id="imageInput" accept="image/*" aria-label="Select Image">
+                <div id="dropArea" class="drop-area">
+                    <p>Drag & Drop Image Here</p>
+                </div>
+            </div>
+            <div class="section">
+                <label for="textInput">Enter Text:</label>
+                <textarea id="textInput" rows="4" placeholder="Enter your text here..." aria-label="Enter Text"></textarea>
+            </div>
+            <div class="section">
+                <label>Text Position:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="textPosition" value="above" checked> Above</label>
+                    <label><input type="radio" name="textPosition" value="below"> Below</label>
+                </div>
+            </div>
+            <div class="section">
+                <label>Select Resolution:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="resolution" value="1920x1080"> 1920x1080</label>
+                    <label><input type="radio" name="resolution" value="1080x1920" checked> 1080x1920</label>
+                    <label><input type="radio" name="resolution" value="1280x720"> 1280x720</label>
+                    <label><input type="radio" name="resolution" value="custom"> Custom</label>
+                </div>
+                <div id="customResolutionContainer" class="hidden">
+                    <input type="text" id="customResolution" placeholder="e.g., 1600x900" aria-label="Custom Resolution">
+                </div>
+            </div>
+            <div class="section">
+                <label for="fontSelect">Select Font:</label>
+                <select id="fontSelect" aria-label="Select Font">
+                    <option value="Arial">Arial</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+            </div>
+            <div class="section">
+                <label for="fontSize">Font Size:</label>
+                <input type="range" id="fontSize" min="10" max="100" value="50" aria-label="Font Size">
+                <span id="fontSizeDisplay">30px</span>
+            </div>
+            <div class="section color-section">
+                <label>Customize Colors:</label>
+                <div class="color-picker-group">
+                    <div class="color-picker">
+                        <label for="textColor">
+                            <span class="icon">🖍️</span> Text Color:
+                        </label>
+                        <input type="color" id="textColor" value="#000000" aria-label="Text Color">
+                        <input type="text" id="textColorHex" placeholder="hex code e.g #25235">
+                    </div>
+                    <div class="color-picker">
+                        <label for="backgroundColor">
+                            <span class="icon">🎨</span> Background Color:
+                        </label>
+                        <input type="color" id="backgroundColor" value="#FFFFFF" aria-label="Text Background Color">
+                        <input type="text" id="backgroundColorHex" placeholder="hex code e.g #25235">
+                    </div>
+                </div>
+            </div>
+            <div class="section buttons">
+                <button id="copyButton">Copy to Clipboard</button>
+                <button id="downloadButton">Download Image</button>
+            </div>
+            <div id="result" class="result"></div>
+            <div id="loading" class="hidden">
+                <p>Processing...</p>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h3>Preview:</h3>
+            <canvas id="previewCanvas">Preview will appear here.</canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
